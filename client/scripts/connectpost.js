@@ -51,7 +51,7 @@ clientsaddForm.addEventListener("submit", async (event) => {
     const clientsname = document.getElementById("client-name").value;
     const clientsnumber = document.getElementById("client-number").value;
     const clientsemail = document.getElementById("client-email").value;
-    dataclient = {
+    const dataclient = {
         name: clientsname,
         number: clientsnumber,
         email: clientsemail
