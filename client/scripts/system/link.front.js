@@ -1,0 +1,1 @@
+export const LINK =`https://backend-shop-gyv3.onrender.com`;

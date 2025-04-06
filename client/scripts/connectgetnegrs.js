@@ -1,7 +1,9 @@
+import { LINK } from "./system/link.front.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const negrList = document.getElementById("negrget-list");
     negrList.innerHTML = "";
-    axios.get("http://localhost:3000/api/negrs/get_full")
+    axios.get(`${LINK}/api/negrs/get_full`)
         .then(response => {
             let negrs = response.data;
             negrs.forEach(negr => {

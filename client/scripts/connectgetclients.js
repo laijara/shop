@@ -1,7 +1,9 @@
+import { LINK } from "./system/link.front.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const clientLists = document.getElementById("clientget-list");
     clientLists.innerHTML = "";
-    axios.get("http://localhost:3000/api/clients/get_full")
+    axios.get(`${LINK}/api/clients/get_full`)
         .then(response => {
             let clients = response.data;
             console.table(response.data);

@@ -1,3 +1,5 @@
+import { LINK } from "./system/link.front.js";
+
 function showTempMessage(element, message) {
     element.textContent = message;
     element.style.display = 'block';
@@ -7,9 +9,9 @@ function showTempMessage(element, message) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const clientsData = await axios.get("http://localhost:3000/api/clients/id_and_name")
+    const clientsData = await axios.get(`${LINK}/api/clients/id_and_name`)
     console.table(clientsData.data);
-    const negrsData = await axios.get("http://localhost:3000/api/negrs/id_and_name")
+    const negrsData = await axios.get(`${LINK}/api/negrs/id_and_name`)
     console.table(negrsData.data);
     const clientName = document.getElementById("clientName");
     const negrName = document.getElementById("negrName");
@@ -37,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             negr: parseInt(negrName.value),
             price: parseInt(priceNegr.value)
         };
-        axios.post("http://localhost:3000/api/purchases/post_all", datanegrs)
+        axios.post(`${LINK}/api/purchases/post_all`, datanegrs)
         .then(() => showTempMessage(document.getElementById("message"), "Добавлено!"))
         .catch(() => showTempMessage(document.getElementById("message"), "Ошибка!"));
     });
@@ -55,7 +57,7 @@ clientsaddForm.addEventListener("submit", async (event) => {
         email: clientsemail
     };
     console.log(dataclient);
-    axios.post("http://localhost:3000/api/clients/post_all", dataclient)
+    axios.post(`${LINK}/api/clients/post_all`, dataclient)
         .then(() => showTempMessage(document.getElementById("message"), "Добавлено!"))
         .catch(() => showTempMessage(document.getElementById("message"), "Ошибка!"));
 });
@@ -73,7 +75,7 @@ negrsaddForm.addEventListener("submit", async (event) => {
         history: negrhistory,
         age: negrage
     };
-    axios.post("http://localhost:3000/api/negrs/post_all", datanegrs)
+    axios.post(`${LINK}/api/negrs/post_all`, datanegrs)
         .then(() => showTempMessage(document.getElementById("message"), "Добавлено!"))
         .catch(() => showTempMessage(document.getElementById("message"), "Ошибка!"));
 });
