@@ -48,16 +48,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 const clientsaddForm = document.getElementById("clientaddForm");
 clientsaddForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const clientsname = document.getElementById("client-name").value;
-    const clientsnumber = document.getElementById("client-number").value;
-    const clientsemail = document.getElementById("client-email").value;
-    const dataclient = {
-        name: clientsname,
-        number: clientsnumber,
-        email: clientsemail
+    const clientsname = document.getElementById("client-name");
+    const clientsnumber = document.getElementById("client-number");
+    const clientsemail = document.getElementById("client-email");
+    const dataforclients = {
+        name: clientsname.value,
+        number: clientsnumber.value,
+        email: clientsemail.value
     };
-    console.log(dataclient);
-    axios.post(`${LINK}/api/clients/post_all`, dataclient)
+    axios.post(`${LINK}/api/clients/post_all`, dataforclients)
         .then(() => showTempMessage(document.getElementById("message"), "Добавлено!"))
         .catch(() => showTempMessage(document.getElementById("message"), "Ошибка!"));
 });
@@ -65,17 +64,17 @@ clientsaddForm.addEventListener("submit", async (event) => {
 const negrsaddForm = document.getElementById("negraddForm");
 negrsaddForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const negrname = document.getElementById("negr-name").value;
-    const negrpost = document.getElementById("negr-post").value;
-    const negrhistory = document.getElementById("negr-history").value;
-    const negrage = document.getElementById("negr-age").value;
-    const datanegrs = {
-        name: negrname,
-        post: negrpost,
-        history: negrhistory,
-        age: negrage
+    const negrname = document.getElementById("negr-name");
+    const negrpost = document.getElementById("negr-post");
+    const negrhistory = document.getElementById("negr-history");
+    const negrage = document.getElementById("negr-age");
+    const datafornegrs = {
+        name: negrname.value,
+        post: negrpost.value,
+        history: negrhistory.value,
+        age: negrage.value
     };
-    axios.post(`${LINK}/api/negrs/post_all`, datanegrs)
+    axios.post(`${LINK}/api/negrs/post_all`, datafornegrs)
         .then(() => showTempMessage(document.getElementById("message"), "Добавлено!"))
         .catch(() => showTempMessage(document.getElementById("message"), "Ошибка!"));
 });
