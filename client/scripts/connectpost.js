@@ -34,12 +34,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     formAddPurchases.addEventListener("submit", (event) => {
         event.preventDefault();
         const priceNegr = document.getElementById("priceNegr");
-        const datanegrs = {
+        const datapurchases = {
             client: parseInt(clientName.value),
             negr: parseInt(negrName.value),
             price: parseInt(priceNegr.value)
         };
-        axios.post(`${LINK}/api/purchases/post_all`, datanegrs)
+        axios.post(`${LINK}/api/purchases/post_all`, datapurchases)
         .then(() => showTempMessage(document.getElementById("message"), "Добавлено!"))
         .catch(() => showTempMessage(document.getElementById("message"), "Ошибка!"));
     });
@@ -69,7 +69,7 @@ negrsaddForm.addEventListener("submit", async (event) => {
     const negrpost = document.getElementById("negr-post").value;
     const negrhistory = document.getElementById("negr-history").value;
     const negrage = document.getElementById("negr-age").value;
-    datanegrs = {
+    const datanegrs = {
         name: negrname,
         post: negrpost,
         history: negrhistory,
